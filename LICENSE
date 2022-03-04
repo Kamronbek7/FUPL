@@ -1,14 +1,13 @@
-#Micron interpretator 1.0.0.4
-from math import*
+#FUPL interpretator 1.0.0.4
 from random import*
 from datetime import*
 from sys import*
-from flask import*
+#from flask import*
 import os
 
 nom="FUPL"
 stor="/storage/emulated/0"
-stormyc=stor+"/."+nom+"/"
+stormyc=stor+"/1."+nom+"/"
 
 if os.path.isdir(stormyc):
 	pass
@@ -98,7 +97,36 @@ g67ytt.write('from math import*\n'+
 '	if n<z:\n'+
 '	   return str(n)+"<"+str(z)\n'+
 '	if n>z:\n'+
-'		return str(n)+">"+str(z)\n')
+'		return str(n)+">"+str(z)\n'+
+"def toq_juft(a):\n"+
+"	if a%2==0:\n"+
+"		return 'juft'\n"+
+"	else:\n"+
+"		return 'toq'\n"+
+"def odd_even(a):\n"+
+"	if toq_juft(a)=='juft': \n"+
+"		return 'even' \n"+
+"	else:\n"+
+"		return 'odd' \n"+
+"def katta(a,b):\n"+
+"	return max(a,b)\n"+
+"def kichik(a,b):\n"+
+"	return min(a,b)\n"+
+"def radi(a):\n"+
+"	return radians(a)\n"+
+"def grad(a):\n"+
+"	return degrees(a)\n"+
+"def yaxlit(a):\n"+
+"	return round(a)\n"+
+"def modul(a):\n"+
+"	return abs(a)\n"+
+"def ktyax(a):\n"+
+"	return ceil(a)\n"+
+"def kkyax(a):\n"+
+"	return floor(a)\n"+
+"def yaxn(a,b):\n"+
+"	return round(a,b)\n"+
+"" )
 g67ytt.close()
 # FIZIKA
 g67ytt=open(stormyc+"fizika.py","w")
@@ -124,15 +152,15 @@ g67ytt=open(stormyc+"chizma.py","w")
 g67ytt.write(
 frm+"tkinter"+imp+
 frm+"turtle"+imp+
-"def Ongchiz(a,b):\n"+
+"def o_ngchiz(a,b):\n"+
 "	right(a)\n"+
 "	forward(b)\n"+
 "def chapchiz(a,b):\n"+
-"	right(a); forward(b)")
+"	right(a); forward(b)" )
 g67ytt.close()
 
 mep="FEP"
-hozir=str(datetime.now())
+hozir="04.03.22 20:38:12" #str(datetime.now())
 versiya="1.0.0.5"
 version=versiya
 yang="("+hozir+")"
@@ -163,7 +191,7 @@ def QiymatXato(b):
 def SintaksisXato(c,b):
   if b not in c :
    print("X:",1,"==\nSX: v'"+b+"' "),u()
-def SintaksisXato2(b):
+def SintaksisXato(b):
  return "X: 1==\nSX:\n\t"+b
  
 def Xato(a):
@@ -176,7 +204,7 @@ def Xato(a):
 	except NameError:
 		NomXato(str(a))
 	except SyntaxError:
-		SintaksisXato2(a)
+		SintaksisXato(a)
 
 # BOSHQA
 def output(a):
@@ -362,7 +390,7 @@ def yordam():
        "\n\t\tBAʼZI ATAMALAR\n"+
        "Argument- funksiya qabul qiladigan qiymatlarning belgilangan soni\n"+
        "Operator- dasturlash tili buyrugʻi\n"+
-       ""+
+       "Modul- alohida faylda yozilgan funksiyalar majmuasi."+
        "\tFUPL TARIXI\n"+
        '  '+nom+' (The first uzbek programming language - Birinchi oʻzbekcha dasturlash tili) dasturlash tilining muallifi — QUCHQOROV Kamronbek.Ushbu qoʻllanma '+nom+'ni oʻrganish uchun yaratildi. Qoʻllanma '+nom+'ning '+versiya+' versiyasi boʻyicha yaratildi. Endi esa '+nom+' tarixiga yuzlansak: dasturlash tiliga dastlab "Mycron" deb nom qoʻyilgan edi. Ammo keyinchalik "'+nom+'"ga aylandi.\n'+
        "  "+nom+" dasturlash tilining quyidagicha qulayliklari bor:\n"+
@@ -421,8 +449,13 @@ def yordam():
         '  molas\n'+
         buy+'  mirror("salom")\n'+
         '  molas\n\n'+
-        '\tHISOBLASH\n'+
-        '  '+nom+' pythondan farqli ravishda modul yuklamasdan turib sinus, kosinus kabilarni hisoblash imkonini beradi. Buning uchun quyida misollar keltirilgan:\n\n'+
+        "\t MODULLAR \n"+
+        "  Modullar foydalanish uchun juda qulay. "+nom+"da quyidagi modullar mavjud:\n"+
+        "1) fizika- ushbu modul fizikaga oid maʼlumotlarni berish va masalalarni hal etish imkonini beradi;\n"+
+        "2)chizma- modul turli chiziq va figuralarni chizish uchun ishlatiladi;\n"+
+        "3)matem- Matematik, trigonometrik hisoblashlarni amalga oshiruvchi modul;\n"+
+        '\tMATEMATIK HISOBLASH\n'+
+        '  '+nom+' dasturlash tilida ham matematik funksiyalar mavjud. Ularning barchasi matem moduliga joylashtirilgan. Avval bu modulni dasturga yuklash kerak . Ulardan foydalanish uchun quyida misollar keltirilgan:\n\n'+
         '   '+buy+'sin(34)\n'+
         '   529082686120\n\n'+
         ' Bundan tashqari boshqa buyruqlar quyida keltirilgan:\n'+
@@ -435,19 +468,19 @@ def yordam():
         ' taqqos------------------------taqqoslash\n'+
         ' katta/max------------------eng katta son\n'+
         ' kichik/min------------------eng kichik son\n'+
-        ' radi------------------------------darajadan radianga\n'+
-        ' grad-----------------------------radiandan darajaga\n'+
-        ' kky-------------------------------eng yaqin kichik butun songacha yaxlitlash\n'+
-        ' yaxlit----------------------------yaxlitlash\n'+
-        ' n_yax---------------------------yaxlitlash (m ni n ta belgi qolguncha yaxlitlash)\n'+
-        ' kty--------------------------------eng yaqin katta butun songacha yaxlitlash\n'+
-        ' factor--------------------------faktorial\n'+
-        ' pi----------------------------------pi soni\n'+
-        ' sqrt/ildiz----------------------kvadrat ildiz\n'+
-        ' modul/abs------------------modul\n'+
+        ' radi----------------------------darajadan radianga\n'+
+        ' grad----------------------------radiandan darajaga\n'+
+        ' kkyax--------------------------eng yaqin kichik butun songacha yaxlitlash\n'+
+        ' yaxlit--------------------------yaxlitlash\n'+
+        ' yaxn(m,n)-----------------yaxlitlash (m ni n ta belgi qolguncha yaxlitlash)\n'+
+        ' ktyax--------------------------eng yaqin katta butun songacha yaxlitlash\n'+
+        ' factor------------------------faktorial\n'+
+        ' pi------------------------------pi soni\n'+
+        ' ild----------------------kvadrat ildiz\n'+
+        ' modul------------------modul\n'+
         ' log--------------------------------logarifm(a,b)\n'+
         ' discrim-----------------------(a,b,c)diskriminant\n'+
-        ' abs, modul(a)------------a ning moduli\n'+
+        ' modul(a)------------a ning moduli\n'+
         '\tFIZIKA\n'+
         ' '+nom+' dasturlash tilida fizik masalalarni ham hisoblash mumkin.\n'+
         ' kuch_mg(a)-----------------a ning ogʻirlik kuchini hisoblaydi (g=9.81 N/kg)\n'+
@@ -471,16 +504,19 @@ def yordam():
         ' "S"-------"Sintaksis"\n'+
         " '~'------'emas' \n"+
         " '_'-------'kiritish' \n"+
+        " 'kk'-----'kichik' \n"+
+        " 'kt'------'katta' \n"+
         '  NomXato(NX), FaylMavjudligiXato(Fl+X), FaylMavjudEmasligiXato(Fl-X), QiymatXato(QX),SintaksisXato(SX) bular xatolik turlari hisoblanadi. Xatoga yoʻl qoʻyishning quyidagi sabablari boʻlishi mumkin: verguldan soʻng boʻsh joy qoldirish, ikkita vergulni yonma-yon qoʻyish va raqam oʻrniga soʻz yoki belgi kiritish.\n'+
         '\tFAYLLAR BILAN ISHLASH\n'+
         " Quyida fayllar bilan bogʻliq funksiyalar.\n "+
-        ' yarat_fl/create_fl-------------------Fayl yaratadi\n'+
+        ' yrtfl/mkfl-------------------Fayl yaratadi\n'+
         ' o_chir/remove-----------------------Faylni oʻchiradi\n'+
         ' o_qish/read--------------------------------Faylni oʻqiydi\n'+
         ' qo_sh/appen-----------Faylga yozuv qoʻshadi(Agar mavjud boʻlmasa, yaratib yozadi)\n'+
         ' yozish/write--------------Faylga qayta yozadi(barcha eski yozuvlar oʻchib, yangisi yoziladi. Agar fayl mavjud boʻlmasa yaratib yozadi)\n'+
-        ' qayta_nom/rename-------Faylni qayta nomlaydi(mavjud boʻlmasa xatolik yuz beradi)\n\n'+
-         'aniq/to_deter-------------------Fayl mavjudligini aniqlaydi(mavjud boʻlsa 1, aks holda 0 ni qaytaradi)')
+        ' qaytnomfl/rename-------Faylni qayta nomlaydi(mavjud boʻlmasa xatolik yuz beradi)\n\n'+
+         'aniqfl/todtrfl-------------------Fayl mavjudligini aniqlaydi(mavjud boʻlsa 1, aks holda 0 ni qaytaradi)'+
+         "ktyar------------------- katalog yaratish\n" )
        f.close()
        print("\n\t"+nom+" "+versiya+" yordam dasturiga xush kelibsiz!\nAgar "+nom+"dan birinchi marta foydalanayotgan bo'lsangiz, albatta tekshirib ko'rishingiz kerak.\nYozish bo'yicha yordam olish uchun har qanday modul, kalit so'z yoki mavzu nomini kiriting.\n\t"+nom+" dasturlari va "+nom+"  modullaridan foydalanish.\nUshbu yordam dasturidan chiqish va tarjimonga qaytish uchun, shunchaki, \"chiqish\" ni kiriting.\nMavjud modullar, kalit so'zlar yoki belgilar  ro'yxatini olish uchun\n\"modullar\", \"belgilar\", 'hujjat'  yoki 'FEP' soʻzlaridan birini kiriting.\n")
        while True:
@@ -511,7 +547,7 @@ def tarix() :
     return nom+" dasturlash tilining muallifi- Kamronbek QUCHQOROV.\n Dasturni yaratish 2021-yilda boshlangan.\n"
     return ''
 def license() :
-    print("")
+    print("License: MIT")
 
 def stop():
 	while True:
@@ -546,7 +582,7 @@ def stop():
 				try:
 					print(eval(a))
 				except SyntaxError:
-					print (SintaksisXato2(a))
+					print (SintaksisXato(a))
 				except NameError:
 					print(NomXato(a))
 				except TypeError :
@@ -563,9 +599,10 @@ def stop():
 					print()
 stop()
 
+"""
 app = Flask(__name__)
 @app.route("/")
 def hello():
-  return "3.Mycron/Mycron.py"
+  return "1.FUPL/FUPL.py"
 if __name__ == "__main__":
-  app.run()
+  app.run()"""
