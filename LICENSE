@@ -4,7 +4,7 @@ from datetime import*
 from sys import*
 #from flask import*
 import os
-from tkinter import*
+
 nom="FUPL"
 stor="/storage/emulated/0"
 stormyc=stor+"/1."+nom+"/"
