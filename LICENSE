@@ -1,10 +1,10 @@
-#FUPL interpretator 1.0.0.4
+#FUPL interpretator 1.0
 from random import*
 from datetime import*
 from sys import*
 #from flask import*
 import os
-
+from tkinter import*
 nom="FUPL"
 stor="/storage/emulated/0"
 stormyc=stor+"/1."+nom+"/"
@@ -33,6 +33,9 @@ t5yr.write(frm+"tkinter"+imp+
 "	Button(text='<', command=exit, width=1).grid(row=1, column=2)\n"+
 "	e1=Entry(width=18);e1.grid(row=1, column=1)\n"+
 "	e2=Text(width=28, height=23);e2.grid(row=4, column=1) \n"+
+"	def print(*a):\n"+
+"		e2.insert(END,a)\n"+
+"	print(4,56)\n"
 "	def yoz():\n"+
 "		a=str(e1.get())\n"+
 "		import os\n"+
@@ -161,7 +164,7 @@ g67ytt.close()
 
 mep="FEP"
 hozir="04.03.22 20:38:12" #str(datetime.now())
-versiya="1.0.0.5"
+versiya="1.0"
 version=versiya
 yang="("+hozir+")"
 ekr=nom+" ["+versiya+"] android uchun.\n"+yang+"\nKoʻproq maʼlumot 'mualliflik', 'yordam' yoki  'tarix' soʻzlarida."
@@ -238,91 +241,87 @@ def file(a):# YOZISH
   			r.write(d+"\n");r.close()
 
 # FAYLLAR
-def qo_sh(a,b):
-	a=str(a);b=str(b)
-	j=open(a,"a")
-	j.write(b)
-	o=j.close()
-	return ''
-def appen(a):
-	a=str(a)
-	qo_sh(a)
-
-def o_chir(a):
-	a=str(a)
-	import os
-	try:
-		os.remove(a)
-		return ''
-	except FileNotFoundError:
-		return FaylMavjudEmasligiXato(a)
-def remove(a):
-	a=str(a)
-	o_chir(a)
-	return ''
-
-def yozish(a,b):
-	a=str(a);b=str(b)
-	t=open(a,'w')
-	t.write(b)
-	g=t.close()
-	return ''
-def write(a,b):
-	a=str(a);b=str(b)
-	yozish(a,b)
-	return ''
-
-def qaytnomfl(a,b):
-	a=str(a);b=str(b)
-	import os
-	if os.path.exists(a):
-		if os.path.exists(b):
-			FaylMavjudligiXato(b)
-		else:
-			os.rename(a,b)
-			return ''
-	else:
-		FaylMavjudEmasligiXato(a)
-def rename(a,b):
-	a=str(a);b=str(b)
-	qaytnomfl(a,b)
-	return ''
-
-def yrtfl(a):
-	a=str(a)
-	import os
-	if os.path.exists(a):
-		FaylMavjudligiXato(a)
-	else:
-		open(a,"x")
-		return ''
-def mkfl(a):
-	a=str(a)
-	yrtfl(a)
-
-def o_qish(a):
-	a=str(a)
-	t=open(a,"r")
-	f=t.read()
-	t.close()
-	return f
-def read(a):
-	a=str(a)
-	return o_qish(a)
-
-def aniq(a):
-	a=str(a)
-	import os
-	if os.path.exists(a):
-		return True
-	else:
-		return False
-def todtrfl(a):
-	return aniq(a)
-
-def ktyar(a):
-	os.mkdir (str(a))
-	return ''
+ee2=open("fl.py","w")
+ee2.write(frm+"fl"+imp+
+"def qo_sh(a,b):\n"+
+"	a=str(a);b=str(b)\n"+
+"	j=open(a,\"a\")\n"+
+"	j.write(b)\n"+
+"	o=j.close()\n"+
+"	return ''\n"+
+"def appen(a):\n"+
+"	a=str(a)\n"+
+"	qo_sh(a)\n"+
+"def o_chir(a):\n"+
+"	a=str(a)\n"+
+"	import os\n"+
+"	try:\n"+
+"		os.remove(a)\n"+
+"		return ''\n"+
+"	except FileNotFoundError:\n"+
+"		return FaylMavjudEmasligiXato(a)\n"+
+"def remove(a):\n"+
+"	a=str(a)\n"+
+"	o_chir(a)\n"+
+"	return ''\n\n"+
+"def yozish(a,b):\n"+
+"	a=str(a);b=str(b)\n"+
+"	t=open(a,'w')\n"+
+"	t.write(b)\n"+
+"	g=t.close()\n"+
+"	return ''\n"+
+"def write(a,b):\n"+
+"	a=str(a);b=str(b)\n"+
+"	yozish(a,b)\n"+
+"	return ''\n\n"+
+"def qaytnomfl(a,b):\n"+
+"	a=str(a);b=str(b)\n"+
+"	import os\n"+
+"	if os.path.exists(a):\n"+
+"		if os.path.exists(b):\n"+
+"			FaylMavjudligiXato(b)\n"+
+"		else:\n"+
+"			os.rename(a,b)\n"+
+"			return ''\n"+
+"	else:\n"+
+"		FaylMavjudEmasligiXato(a)\n"+
+"def rename(a,b):\n"+
+"	a=str(a);b=str(b)\n"+
+"	qaytnomfl(a,b)\n"+
+"	return ''\n"+
+"def yrtfl(a):\n"+
+"	a=str(a)\n"+
+"	import os\n"+
+"	if os.path.exists(a):\n"+
+"		FaylMavjudligiXato(a)\n"+
+"	else:\n"+
+"		open(a,\"x\")\n"+
+"		return ''\n"+
+"def mkfl(a):\n"+
+"	a=str(a)\n"+
+"	yrtfl(a)\n"+
+"def o_qish(a):\n"+
+"	a=str(a)\n"+
+"	t=open(a,\"r\")\n"+
+"	f=t.read()\n"+
+"	t.close()\n"+
+"	return f\n"+
+"def read(a):\n"+
+"	a=str(a)\n"+
+"	return o_qish(a)\n"+
+"def aniq(a):\n"+
+"	a=str(a)\n"+
+"	import os\n"+
+"	if os.path.exists(a):\n"+
+"		return True\n"+
+"	else:\n"+
+"		return False\n"+
+"def todtrfl(a):\n"+
+"	return aniq(a)\n"+
+"def klyar(a):\n"+
+"	os.mkdir (str(a))\n"+
+"	return ''\n" )
+ee2.close()
 # SOʻZLAR
 def mirror(a):
 	a=str(a)
@@ -375,10 +374,10 @@ def pas():
 
 # STANDART OPERATORLAR
 def yozuv(*a):
-	return print(str(a)[1:-1])
+	return print(*a)
 
 def kirit(*a):
-	return input(str(a)[1:-1])
+	return input(*a)
 
 def pas():
 	pass
@@ -495,7 +494,7 @@ def yordam():
         'NX: N "hhh"\n'+
         buy+'\n\n'+
         ' Xatolar bilan ishlash uchun baʼzi belgilarning bildiradigan soʻzlarini bilib olish zarur:\n'+
-        ' "Fl"-------"Fayl"\n'+
+        ' "Fl/fl"-------"Fayl"\n'+
         ' "X"-----"xato"\n'+
         ' "N"-----"nom"\n'+
         ' "+"------"allaqachon mavjud"\n'+
@@ -506,9 +505,10 @@ def yordam():
         " '_'-------'kiritish' \n"+
         " 'kk'-----'kichik' \n"+
         " 'kt'------'katta' \n"+
+        " 'kl'------'katalog' \n"+
         '  NomXato(NX), FaylMavjudligiXato(Fl+X), FaylMavjudEmasligiXato(Fl-X), QiymatXato(QX),SintaksisXato(SX) bular xatolik turlari hisoblanadi. Xatoga yoʻl qoʻyishning quyidagi sabablari boʻlishi mumkin: verguldan soʻng boʻsh joy qoldirish, ikkita vergulni yonma-yon qoʻyish va raqam oʻrniga soʻz yoki belgi kiritish.\n'+
         '\tFAYLLAR BILAN ISHLASH\n'+
-        " Quyida fayllar bilan bogʻliq funksiyalar.\n "+
+        " Quyida fayllar bilan bogʻliq funksiyalar. Ular fl moduliga joylashtirilgan. Shuning uchun dastlab modulni import qilib olish kerak. \n "+
         ' yrtfl/mkfl-------------------Fayl yaratadi\n'+
         ' o_chir/remove-----------------------Faylni oʻchiradi\n'+
         ' o_qish/read--------------------------------Faylni oʻqiydi\n'+
@@ -575,7 +575,7 @@ def stop():
 			pass
 		else:
 			a=m
-			if ("="in a and "=="not in a)or("import"in a)or("def"in a)or("while"in a) :
+			if ("="in a and "=="not in a)or("import"in a)or("def"in a)or("while"in a)or("yozuv"in a) :
 				exec(a)
 			else:
 				"print"not in a and "yozuv"not in a
@@ -598,11 +598,3 @@ def stop():
 				except IsADirectoryError:
 					print()
 stop()
-
-"""
-app = Flask(__name__)
-@app.route("/")
-def hello():
-  return "1.FUPL/FUPL.py"
-if __name__ == "__main__":
-  app.run()"""
