@@ -1,78 +1,126 @@
-#FUPL interpretator 1.0
+#FUPL interpretator 1.0.1
 from random import*
 from datetime import*
-from sys import*
-#from flask import*
-import os
 
+import os
 nom="FUPL"
-stor="/storage/emulated/0"
-stormyc=stor+"/1."+nom+"/"
+stor="/storage/emulated/0/"
+stormyc=stor+"1."+nom+"/"
 
 if os.path.isdir(stormyc):
 	pass
 else:
 	os.mkdir(stormyc)
-# MYCRON GUI
+# FUPL GUI
 imp=" import*\n"
 frm="from "
-t5yr=open(stormyc+nom+" GUI.py","w")
+t5yr=open(stormyc+nom+" GUI&T.py","w")
 t='"\ "[0]+"t"'
-t5yr.write(frm+"tkinter"+imp+
-"from funksiya import* \n"+
-"keng=5\n"+
-"def tex(a,b):\n"+
-"	w=Tk()\n"+
-"	w.title(b)\n"+
-"	f=Text(w, width=20, height=10)\n"+
-"	f.grid()\n"+
-"	f.insert(0.0,a)\n"+
-"	w. mainloop()\n"+
-"def oy():\n"+
-"	w=Tk()\n"+
-"	Button(text='<', command=exit, width=1).grid(row=1, column=2)\n"+
-"	e1=Entry(width=18);e1.grid(row=1, column=1)\n"+
-"	e2=Text(width=28, height=23);e2.grid(row=4, column=1) \n"+
-"	def print(*a):\n"+
-"		e2.insert(END,a)\n"+
-"	print(4,56)\n"
-"	def yoz():\n"+
-"		a=str(e1.get())\n"+
-"		import os\n"+
-"		if os.path.exists(a):\n"+
-"			e2.delete(0.0,END) \n"+
-"			o=open(a,'r')\n"+
-"			g=o.read()\n"+
-"			o.close()\n"+
-"			e2.insert(0.0,g)\n"+
-"		else:\n"+
-"			tex('File not found','ERROR')\n"+
-"	def yozu():\n"+
-"		e2.insert(END,'    ')\n"+
-"	def ch():\n"+
-"		z=str(e1.get())\n"+
-"		v=str(e2.get(0.1,END)) \n"+
-"		sfd=open(z,'w')\n"+
-"		sfd.write('')\n"+
-"		sfd.close()\n"+
-"		g=open(z,'a')\n"+
-"		g.write(v)\n"+
-"		g.close()\n"+
-"	def fl():\n\t\timport os\n\t\tc=str(e1.get())\n"+
-"		if os.path.exists(c):\n"+
-"			y=open(str(e1.get()),'w');y.write('');y.close()\n"+
-"			tex('Cleared file','OK') \n"+
-"		else:tex('File not found','ERROR')\n"+
-"	def out(): \n"+
-"		a=str(e2.get(0.0,END)) \n"+
-"		exec(a) \n"+
-"	Button(text='Read',command=yoz, width=keng).grid(row=2, column=1)\n"+
-"	Button(text='Tab', command=yozu, width=keng).grid(row=2, column=1,sticky='nw')\n"+
-"	Button(text='Save', command=ch, width=keng).grid(row=2, column=1,sticky='ne')\n"+
-"	#Button(text='clear a file', command=fl).grid(row=6, column=2)\n"+
-"	Button(text='>>', command=out, width=1, height=3).grid(row=4, column=2,sticky='n') \n"+
-"	w. mainloop()\n"+
-"oy()")
+t5yr.write(frm+"tkin"+"ter"+imp+
+'w=Tk()\n'+
+'w.config(bg="black")\n'+
+'e1=Entry(w,width=18,bg="black",fg="lime", insertbackground="yellow");e1.grid(row=1, column=1)\n'+
+'e3=Text(w,width=33, height=25,insertbackground="yellow",bg="black",fg="lime");e3.grid(row=4, column=1)\n'+
+
+'def ERROR(a,b):\n'+
+'	w=Tk()\n'+
+'	w.title(b)\n'+
+'	f=Text(w, width=20, height=10,fg="red",bg="black")\n'+
+'	f.grid()\n'+
+'	f.insert(0.0,a)\n'+
+'	w. mainloop()\n'+
+
+'def Run():\n'+
+'	a=str(e3.get(0.0,END))\n'+
+'	if "tkinter"in a or "chizma"in a or "turtle"in a:\n'+
+'		try:\n'+
+'			exec(a)\n'+
+'		except:\n'+
+'			ERROR("ERROR","ERROR")\n'+
+'	else:\n'+
+'		pass\n'+
+
+'def bo_sh():\n'+
+'	e1.delete(0,END)\n'+
+'def bosh():\n'+
+'	e3. delete(0.0,END)\n'+
+
+'def o_qi():\n'+
+'		a=str(e1.get())\n'+
+'		import os\n'+
+'		if os.path.exists(a):\n'+
+'			e3.delete(0.0,END)\n'+
+'			o=open(a,\'r\')\n'+
+'			g=o.read()\n'+
+'			o.close()\n'+
+'			e3.insert(0.0,g)\n'+
+'		else:\n'+
+'			ERROR (\'File not found\',\'ERROR\')\n'+
+'def remove():\n'+
+'	a=str(e1.get())\n'+
+'	import os\n'+
+'	if os.path.exists(a):\n'+
+'		os.remove(a)\n'+
+'	else:\n'+
+'		ERROR(FaylMavjudEmasligiXato(a))\n'+
+'def saqla ():\n'+
+'		z=str(e1.get())\n'+
+'		v=str(e3.get(0.1,END))\n'+
+'		sfd=open(z,\'w\')\n'+
+'		sfd.write(\'\')\n'+
+'		sfd.close()\n'+
+'		g=open(z,\'a\')\n'+
+'		g.write(v)\n'+
+'		g.close()\n'+
+'def yangi():\n'+
+'		a=str(e1.get())\n'+
+'		if os.path.exists(stor+a+".txt"):\n'+
+'			ERROR (FaylMavjudEmasligiXato(a),"F+X")\n'+
+'		else:\n'+
+'			import kf\n'+
+'			kf.yrtfl(a)\n'+
+'def donothing():\n'+
+'	pass\n'+
+'	\"\"\"filewin = Toplevel(w)\n'+
+'	button = Button(filewin,w, text="Hozircha yoʻq, uzr!")\n'+
+'	button.pack()"\"\"\n'+
+'def yopish():\n'+
+'	bo_sh()\n'+
+'	bosh()\n'+
+'def tab():\n'+
+'	e3.insert(END,"    ")\n'+
+'Button(text=">>", command=Run,fg="lime",bg="black").grid(row=1, column=1, sticky="e")\n'+
+'Button(text="<<", command=exit,fg="lime",bg="black").grid(row=1, column=1, sticky="w")\n'+
+'menubar = Menu(w,bg="black",fg="lime")\n'+
+'filemenu = Menu(menubar, tearoff=0,bg="black",fg="lime")\n'+
+'filemenu.add_command(label="Yangi", command=yangi)\n'+
+'filemenu.add_command(label="Ochish", command=o_qi)\n'+
+'filemenu.add_command(label="Saqlash", command=saqla)\n'+
+'filemenu.add_command(label="X", command=yopish)\n'+
+'filemenu.add_separator()\n'+
+'filemenu.add_command(label="←", command=w.quit)\n'+
+'menubar.add_cascade(label="Fayl", menu=filemenu)\n'+
+'runmenu=Menu(menubar,tearoff=0,bg="black",fg="lime")\n'+
+'runmenu.add_separator()\n'+
+'runmenu.add_command(label="Run", command=Run)\n'+
+'menubar.add_cascade(label="Run",menu=runmenu)\n'+
+'editmenu = Menu(menubar, tearoff=0,bg="black",fg="lime")\n'+
+'editmenu.add_command(label="Oldinga", command=donothing)\n'+
+'editmenu.add_separator()\n'+
+'editmenu.add_command(label="Kesish", command=donothing)\n'+
+'editmenu.add_command(label="Nusxalash", command=donothing)\n'+
+'editmenu.add_command(label="Joylash", command=donothing)\n'+
+'editmenu.add_command(label="Oʻchirish", command=remove)\n'+
+'editmenu.add_command(label="Barchasini belgilash", command=donothing)\n'+
+'editmenu.add_command(label="Tab", command=tab)\n'+
+'menubar.add_cascade(label="Tahrir", menu=editmenu)\n'+
+'helpmenu = Menu(menubar, tearoff=0,bg="black",fg="lime")\n'+
+'helpmenu.add_command(label="Indeks yordam", command=donothing)\n'+
+'helpmenu.add_command(label="...haqida", command=donothing)\n'+
+'menubar.add_cascade(label="Yordam", menu=helpmenu)\n'+
+'w.config(menu=menubar)\n'+
+
+'w. mainloop()\n')
 t5yr.close()
 # MATEM
 g67ytt=open(stormyc+"matem.py","w")
@@ -96,7 +144,7 @@ g67ytt.write('from math import*\n'+
 '      print("x(v1)=%s"%x1,"x(v2)=%s"%x2)\n'+
 'def taqqos(n,z):\n'+
 '	if n==z:\n'+
-'	    return str(n)+"="+str(z)\n'+
+'	    return str(n)+"=="+str(z)\n'+
 '	if n<z:\n'+
 '	   return str(n)+"<"+str(z)\n'+
 '	if n>z:\n'+
@@ -164,12 +212,14 @@ g67ytt.close()
 
 mep="FEP"
 hozir="04.03.22 20:38:12" #str(datetime.now())
-versiya="1.0"
+versiya="1.0.1"
 version=versiya
 yang="("+hozir+")"
-ekr=nom+" ["+versiya+"] android uchun.\n"+yang+"\nKoʻproq maʼlumot 'mualliflik', 'yordam' yoki  'tarix' soʻzlarida."
-screen=nom+" ["+versiya+"] for android.\n"+yang+"\nType 'help', 'copyright' or 'history' for more information."
+ekr=nom+" ["+versiya+"] android uchun.\n"+yang+"\nKoʻproq maʼlumot 'mualliflik()', 'yordam()', 'litsenziya()' yoki  'tarix()' soʻzlarida."
+screen=nom+" ["+versiya+"] for android.\n"+yang+"\nType 'help()', 'copyright()', 'license()' or 'history()' for more information."
 
+"""def print(*a):
+	e2.insert(END,*a)"""
 tas=randint(1,2)
 if tas==1:# oʻzbek
   print(ekr)
@@ -191,23 +241,11 @@ def NomXato(b):
 def QiymatXato(b):
 	return "X: 1 ==\nQX: '"+b+"' ~No"
 
-def SintaksisXato(c,b):
-  if b not in c :
-   print("X:",1,"==\nSX: v'"+b+"' "),u()
 def SintaksisXato(b):
  return "X: 1==\nSX:\n\t"+b
  
-def Xato(a):
-	try:
-		a+"g"
-	except TypeError:
-		QiymatXato(str(a))
-	except ValueError:
-		QiymatXato(str(a))
-	except NameError:
-		NomXato(str(a))
-	except SyntaxError:
-		SintaksisXato(a)
+def ModulMavjudEmasligiXato(a):
+	return "X: 1==\nM-X: M \'"+"\'-"
 
 # BOSHQA
 def output(a):
@@ -240,9 +278,18 @@ def file(a):# YOZISH
   			"save" not in d and "saqla"not in d
   			r.write(d+"\n");r.close()
 
+"""def yukla(a):
+	global m3f4
+	import os
+	if os.path.exists(a+".py"):
+		g=compile(m3f4,stormyc+a+".py", "exec")
+		return exec(g)
+	else:
+		return ModulMavjudEmasligiXato(a)"""
+
 # FAYLLAR
-ee2=open("fl.py","w")
-ee2.write(frm+"fl"+imp+
+ee2=open("kf.py","w")
+ee2.write(frm+"os"+imp+
 "def qo_sh(a,b):\n"+
 "	a=str(a);b=str(b)\n"+
 "	j=open(a,\"a\")\n"+
@@ -301,11 +348,13 @@ ee2.write(frm+"fl"+imp+
 "	a=str(a)\n"+
 "	yrtfl(a)\n"+
 "def o_qish(a):\n"+
-"	a=str(a)\n"+
-"	t=open(a,\"r\")\n"+
-"	f=t.read()\n"+
-"	t.close()\n"+
+"	#a=str(n)\n"+
+"	g=open(a,'r')\n"+
+"	f=g.read()\n"+
+"	g.close()\n"+
 "	return f\n"+
+"#t.close()\n"+
+"#return f4\n"+
 "def read(a):\n"+
 "	a=str(a)\n"+
 "	return o_qish(a)\n"+
@@ -323,7 +372,7 @@ ee2.write(frm+"fl"+imp+
 "	return ''\n" )
 ee2.close()
 # SOʻZLAR
-def mirror(a):
+def mirr(a):
 	a=str(a)
 	return a[::-1]
 def aks(a):
@@ -374,13 +423,13 @@ def pas():
 
 # STANDART OPERATORLAR
 def yozuv(*a):
-	return print(*a)
+	print(*a)
 
 def kirit(*a):
 	return input(*a)
 
 def pas():
-	pass
+	None
 def yordam():
        buy=">>> "
        iz="  # "
@@ -432,8 +481,8 @@ def yordam():
         "\tOʻZGARUVCHILAR BILAN ISHLASH\n"+
         '\tSOʻZLAR BILAN ISHLASH\n'+
         ' '+nom+'da ham soʻzlar ustida ishlash mumkin. Buning uchun 3 ta buyruq mavjud. Ular quyidagilar:\n'+
-        '  aks/mirror--------------soʻzni akslantiradi\n'+
-        '  in_/da------------------------a b ning ichidaligini aniqlash\n'+
+        '  aks/mirr--------------soʻzni akslantiradi\n'+
+        '  da------------------------a b ning ichidaligini aniqlash\n'+
         '  uzun/len------------------soʻz uzunligini aniqlash\n'+
         'Bu buyruqlar dasturda quyidagicha ishlatiladi:\n\n'+
         buy+'  in_("f","uj")\n'+
@@ -529,14 +578,18 @@ def yordam():
        	if "FEP"in pr or "fep"in pr :
        		print("  Qurilmangizning '.FUPL' katalogida\n'"+mep+".txt' nomli fayl paydo boʻldi.\nIltomos, qurilmangizni tekshiring!")
        		f=open(stormyc+mep+".txt","w")
-       		f.write("\tAgar siz oʻzbek tilini bilsangiz "+mep+" hujjatlari quyidagicha yoziladi:\nYaratdi: (ism, familiya)\nBoshlandi: (yaratish boshlangan vaqt(sana,oy,yil))\nTugatildi: (yaratish tugallangan vaqt(sana,oy,yil))\nVersiya:(Qaysi versiya boʻyicha yaratilgani.)\nMen quyidagilarni taklif qilmoqchiman:\n1)______(1-taklif);\n2)_____(2-taklif)\n...\n\t(Agar savollar boʻlsa, quyidagicha:)\nQuyidagi savollarim bor:\n1)____(1-savol)\n2)____(2-savol)\n...\n\n\tDIQQAT!\nQachon "+mep+" soxta deb topiladi?\nQachonki, hujjatda:\n1.Bezakdor, badiiy, erkalash soʻzlari boʻlsa;\n2.Baʼzi parametrlar koʻrsatilmasa;\n3.Fayl py, my, txt kabi fayllardan birortasiga ham tegishli boʻlmasa;\n4."+mep+" muddati oʻtgan boʻlsa.\n\tESDA SAQLANG!\n"+mep+" yozishda fayl nomi '"+mep+'+('+mep+" raqami).txt' koʻrinishida belgilanishi kerak.\n\nYaratilayotgan fayl txt, my yoki py koʻrinishida boʻlishi mumkin."+mep+"larni fupl.uz@mail.ru elektron pochta manziliga yuborishingiz mumkin!")
+       		f.write("\tAgar siz oʻzbek tilini bilsangiz "+mep+" hujjatlari quyidagicha yoziladi:\nYaratdi: (ism, familiya)\nBoshlandi: (yaratish boshlangan vaqt(sana,oy,yil))\nTugatildi: (yaratish tugallangan vaqt(sana,oy,yil))\nVersiya:(Qaysi versiya boʻyicha yaratilgani.)\nMen quyidagilarni taklif qilmoqchiman:\n1)______(1-taklif);\n2)_____(2-taklif)\n...\n\t(Agar savollar boʻlsa, quyidagicha:)\nQuyidagi savollarim bor:\n1)____(1-savol)\n2)____(2-savol)\n...\n\n\tDIQQAT!\nQachon "+mep+" soxta deb topiladi?\nQachonki, hujjatda:\n1.Bezakdor, badiiy, erkalash soʻzlari boʻlsa;\n2.Baʼzi parametrlar koʻrsatilmasa;\n3.Fayl py, my, txt kabi fayllardan birortasiga ham tegishli boʻlmasa;\n4."+mep+" muddati oʻtgan boʻlsa.\n\tESDA SAQLANG!\n"+mep+" yozishda fayl nomi '"+mep+'+('+mep+" raqami).txt' koʻrinishida belgilanishi kerak.\n\nYaratilayotgan fayl txt, uz yoki py koʻrinishida boʻlishi mumkin."+mep+"larni fupl.uz@mail.ru elektron pochta manziliga yuborishingiz mumkin!")
        		f.close()
        	if "belgilar"in pr:
-       		print("%\t|\t==\t<\n>\t^\t&\t-\n+\t/\t//\t*\n**\t>>\t<<")
+       		return "%\t|\t==\t<\n>\t^\t&\t-\n+\t/\t//\t*\n**\t>>\t<<"
        	if "hujjat"in pr:
-       		print(o_qish(stormyc+nom+" qoʻllanma.txt"))
+       		k=(stormyc+nom+" qoʻllanma.txt","r")
+       		r=k.read()
+       		k. close()
+       		print (r)
+       		#k.close()
 def help():
-	pass
+	return ''
 
 def mualliflik() :
 	return "Mualliflik huquqi (c) 2022.\nBarcha huquqlar himoyalangan."
@@ -546,55 +599,81 @@ def copyright() :
 def tarix() :
     return nom+" dasturlash tilining muallifi- Kamronbek QUCHQOROV.\n Dasturni yaratish 2021-yilda boshlangan.\n"
     return ''
+def history():
+	return "Maker programming language of "+nom+" — Kamronbek QUCHQOROV. Began in the 2021-year making program."
+
 def license() :
-    print("License: MIT")
+    return "License of MIT"
+def litsenziya():
+	return 'MIT litsenziyasi'
 
 def stop():
 	while True:
-		buy=">>> "
+		buy=">>_ "
 		iz="  # "
-		m=input(buy)
-		if "#"in m:
-				if m[0]=="#":
-					u()
-		if m[:3]=="\'\'\'":
-				while True:
+		m3f4=input(buy)
+		a=m3f4
+
+		def yukla(b):
+			#global a
+			import os
+			if os.path.exists(b+".py"):
+				g=compile(a,stormyc+b+".py", "exec")
+				return exec(g)
+			else:
+				return ModulMavjudEmasligiXato(b)
+
+		if "#"in m3f4:
+				if m3f4[0]=="#":
+					stop()
+		if m3f4[:3]=="\'\'\'":
+			exec(a)
+			"""while True:
 					i=input(iz)
 					if i[:-4:-1]=="\'\'\'":
-						u()
+						break
+						continue
 					else:
-						pass
-		if m[:3]=="\"\"\"":
+						pass"""
+		if m3f4[:3]=="\"\"\"":
 				while True:
 					i=input(iz)
 					if i[:-4:-1]=="\"\"\"":
-						u()
+						break
+						continue
 					else:
 						pass
-		if m.lstrip()=='' or m=='' :
-			pass
-		else:
-			a=m
-			if ("="in a and "=="not in a)or("import"in a)or("def"in a)or("while"in a)or("yozuv"in a) :
+		if m3f4.lstrip()=='' or m3f4=='' :
+			continue
+		if ("="in a and "=="not in a and "!=" not in a)or("import"in a)or("def"in a)or("while"in a)or("output"in a) :
+			try:
 				exec(a)
-			else:
-				"print"not in a and "yozuv"not in a
-				try:
-					print(eval(a))
-				except SyntaxError:
-					print (SintaksisXato(a))
-				except NameError:
-					print(NomXato(a))
-				except TypeError :
-					print()
-				except ValueError:
-					print()
-				except AttributeError:
-					print()
-				except EOFError:
-					print()
-				except OSError:
-					print()
-				except IsADirectoryError:
-					print()
+			except :
+				print("ERROR")
+		else :
+			try:
+				p=eval(a)
+				if "yozuv"in a or "print"in a :
+					p
+				else:
+					print(p)
+			except SyntaxError:
+				print (SintaksisXato(a))
+			#except NameError:
+			#	print(NomXato(a))
+			#except TypeError :
+			#	print("kiritish xato")
+			except ValueError:
+				print("Qiymat xato")
+			except AttributeError:
+				print("Atribut xato")
+			except OSError:
+				print("OS Cato")
+			except IsADirectoryError:
+				print("Shu fayl")
+			#except:
+			#	print("Xato")
 stop()
+#
+"""
+"""
