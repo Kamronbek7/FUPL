@@ -3,25 +3,29 @@ from random import*
 from datetime import*
 
 import os
-nom="FUPL"
-stor="/storage/emulated/0/"
-stormyc=stor+"1."+nom+"/"
+nom="UMP"
+'''from platform import system
+if system()=='android':
+        stor="/storage/emulated/0/"
+        stormyc=stor+"1."+nom+"/"
+if system()=='windows':
+#stor=''
+stormyc="1."+nom+'\ '
 
 if os.path.isdir(stormyc):
 	pass
 else:
-	os.mkdir(stormyc)
+	os.mkdir(stormyc)'''
 # FUPL GUI
 imp=" import*\n"
 frm="from "
-t5yr=open(stormyc+nom+" GUI&T.py","w")
-t='"\ "[0]+"t"'
-t5yr.write(frm+"tkin"+"ter"+imp+
+"""t5yr=open("GUI&T.py","w")
+t5yr.write(
+'from tki'+'nter import*\n'+
 'w=Tk()\n'+
 'w.config(bg="black")\n'+
 'e1=Entry(w,width=18,bg="black",fg="lime", insertbackground="yellow");e1.grid(row=1, column=1)\n'+
 'e3=Text(w,width=33, height=25,insertbackground="yellow",bg="black",fg="lime");e3.grid(row=4, column=1)\n'+
-
 'def ERROR(a,b):\n'+
 '	w=Tk()\n'+
 '	w.title(b)\n'+
@@ -88,7 +92,7 @@ t5yr.write(frm+"tkin"+"ter"+imp+
 '	bo_sh()\n'+
 '	bosh()\n'+
 'def tab():\n'+
-'	e3.insert(END,"    ")\n'+
+'	e3.insert(insert," "*4)\n'+
 'Button(text=">>", command=Run,fg="lime",bg="black").grid(row=1, column=1, sticky="e")\n'+
 'Button(text="<<", command=exit,fg="lime",bg="black").grid(row=1, column=1, sticky="w")\n'+
 'menubar = Menu(w,bg="black",fg="lime")\n'+
@@ -122,8 +126,9 @@ t5yr.write(frm+"tkin"+"ter"+imp+
 
 'w. mainloop()\n')
 t5yr.close()
+del t5yr"""
 # MATEM
-g67ytt=open(stormyc+"matem.py","w")
+g67ytt=open("matem.py","w")
 g67ytt.write('from math import*\n'+
 'def ildiz(a):\n'+
 '	return sqrt(float(a))\n'+
@@ -180,12 +185,13 @@ g67ytt.write('from math import*\n'+
 "" )
 g67ytt.close()
 # FIZIKA
-g67ytt=open(stormyc+"fizika.py","w")
-g67ytt.write(
-frm+'math'+imp+
+g67ytt=open("fizika.py","w")
+g67ytt.write(frm+'math'+imp+
 'g=9.81\n'+
 "def physics_const():\n"+
-"\tprint('g=9.81 N/kg')\n"
+"\treturn 'g=9.81 N/kg'\n"+
+'def fizik_ozg():\n'+
+'\treturn physics_const()\n'+
 'def tezl_st(a,b):\n'+
 '	return a/b\n'+
 'def vaqt_sv(a,b):\n'+
@@ -199,27 +205,30 @@ frm+'math'+imp+
 g67ytt.close()
 
 # TURTLE
-g67ytt=open(stormyc+"chizma.py","w")
+g67ytt=open("chizma.py","w")
 g67ytt.write(
 frm+"tkinter"+imp+
 frm+"turtle"+imp+
 "def o_ngchiz(a,b):\n"+
-"	right(a)\n"+
-"	forward(b)\n"+
+"	right(a); forward(b)\n"+
 "def chapchiz(a,b):\n"+
-"	right(a); forward(b)" )
+"	right(a); forward(b)\n"+
+"def o_ng(a):\n"+
+"	right(a)\n"+
+"def chiz(a):\n"+
+"	forward(a)\n"+
+"" )
 g67ytt.close()
+del g67ytt
 
 mep="FEP"
-hozir="04.03.22 20:38:12" #str(datetime.now())
+hozir="31.03.22 25:41:17" #str(datetime.now())
 versiya="1.0.1"
 version=versiya
 yang="("+hozir+")"
 ekr=nom+" ["+versiya+"] android uchun.\n"+yang+"\nKoʻproq maʼlumot 'mualliflik()', 'yordam()', 'litsenziya()' yoki  'tarix()' soʻzlarida."
 screen=nom+" ["+versiya+"] for android.\n"+yang+"\nType 'help()', 'copyright()', 'license()' or 'history()' for more information."
 
-"""def print(*a):
-	e2.insert(END,*a)"""
 tas=randint(1,2)
 if tas==1:# oʻzbek
   print(ekr)
@@ -289,7 +298,7 @@ def file(a):# YOZISH
 
 # FAYLLAR
 ee2=open("kf.py","w")
-ee2.write(frm+"os"+imp+
+ee2.write("import os\n"+
 "def qo_sh(a,b):\n"+
 "	a=str(a);b=str(b)\n"+
 "	j=open(a,\"a\")\n"+
@@ -299,6 +308,7 @@ ee2.write(frm+"os"+imp+
 "def appen(a):\n"+
 "	a=str(a)\n"+
 "	qo_sh(a)\n"+
+
 "def o_chir(a):\n"+
 "	a=str(a)\n"+
 "	import os\n"+
@@ -311,6 +321,7 @@ ee2.write(frm+"os"+imp+
 "	a=str(a)\n"+
 "	o_chir(a)\n"+
 "	return ''\n\n"+
+
 "def yozish(a,b):\n"+
 "	a=str(a);b=str(b)\n"+
 "	t=open(a,'w')\n"+
@@ -321,7 +332,8 @@ ee2.write(frm+"os"+imp+
 "	a=str(a);b=str(b)\n"+
 "	yozish(a,b)\n"+
 "	return ''\n\n"+
-"def qaytnomfl(a,b):\n"+
+
+"def qytnmfl(a,b):\n"+
 "	a=str(a);b=str(b)\n"+
 "	import os\n"+
 "	if os.path.exists(a):\n"+
@@ -336,6 +348,7 @@ ee2.write(frm+"os"+imp+
 "	a=str(a);b=str(b)\n"+
 "	qaytnomfl(a,b)\n"+
 "	return ''\n"+
+
 "def yrtfl(a):\n"+
 "	a=str(a)\n"+
 "	import os\n"+
@@ -347,17 +360,19 @@ ee2.write(frm+"os"+imp+
 "def mkfl(a):\n"+
 "	a=str(a)\n"+
 "	yrtfl(a)\n"+
+
 "def o_qish(a):\n"+
-"	#a=str(n)\n"+
-"	g=open(a,'r')\n"+
-"	f=g.read()\n"+
-"	g.close()\n"+
-"	return f\n"+
-"#t.close()\n"+
-"#return f4\n"+
+"	t=str(a)\n\timport os\n"+
+"	if os.path.exists(t):\n"+
+"		g=open (t,'r')\n"+
+"		p=g.read()\n"+
+"		#g.close()\n"+
+"		return p\n"+
+"	else:\n\t\tFaylMavjudEmasligiXato(t)\n"+
 "def read(a):\n"+
 "	a=str(a)\n"+
 "	return o_qish(a)\n"+
+
 "def aniq(a):\n"+
 "	a=str(a)\n"+
 "	import os\n"+
@@ -367,10 +382,12 @@ ee2.write(frm+"os"+imp+
 "		return False\n"+
 "def todtrfl(a):\n"+
 "	return aniq(a)\n"+
+
 "def klyar(a):\n"+
 "	os.mkdir (str(a))\n"+
 "	return ''\n" )
 ee2.close()
+del ee2
 # SOʻZLAR
 def mirr(a):
 	a=str(a)
@@ -388,12 +405,6 @@ def da(a,b):
 	if b in a:
 		return True
 	if b not in a:
-		return False
-def in_(a,b):
-	a=str(a);b=str(b)
-	if a in b:
-		return True
-	if a not in b:
 		return False
 
 def tur(a):
@@ -428,166 +439,58 @@ def yozuv(*a):
 def kirit(*a):
 	return input(*a)
 
-def pas():
-	None
+def hisob(a):
+	return eval(str(a))
+def tkshr(*a):
+  return exec(str(a))
+
+# IDE lar
+def ide():
+  Salom='yozuv("Salom, dunyo!")'
+  vaqt='yozuv(hozir())'
+  kalkulyator='a=kirit(\'misol/sum: \')\nyozuv(hisob(a))'
+
+  yozuv('ASSALOMU ALAYKUM!\nBu yerda siz ajoyib tayyor IDElarni topishingiz mumkin.\nIDE nomlari quyidagilar:\n\nHELLO!\n You can find ready IDEs in this function\nName of IDEs in down: ')
+  yozuv(' "Salom", "vaqt", "kalkulyator", "", \nShulardan birini tanlang./You select:')
+  while True:
+    q=input('\nIDE nomi/Name of IDE: ')
+    if 'Salom' in q:
+      yozuv('Code:\n'+Salom+'\nNatija/Output:\n')
+      exec(Salom)
+    if 'vaqt'in q:
+      yozuv('Code:\n'+vaqt+'\nNatija/Output:')
+      exec(vaqt)
+    if 'kalkulyator' in q:
+      yozuv('Code:\n'+kalkulyator+'\nNatija/Output:')
+      exec(kalkulyator)
+    if 'chiqish'in q or 'quit'in q:
+      return '';break
+    else:
+      continue
+
+# BOSHQA
+__nom__="__asosiy__"
+
 def yordam():
-       buy=">>> "
-       iz="  # "
-       f=open(stormyc+nom+" qoʻllanma.txt","w")
-       f.write('\t\tFUPL QOʻLLANMASI'+
-       "\n\t\tBAʼZI ATAMALAR\n"+
-       "Argument- funksiya qabul qiladigan qiymatlarning belgilangan soni\n"+
-       "Operator- dasturlash tili buyrugʻi\n"+
-       "Modul- alohida faylda yozilgan funksiyalar majmuasi."+
-       "\tFUPL TARIXI\n"+
-       '  '+nom+' (The first uzbek programming language - Birinchi oʻzbekcha dasturlash tili) dasturlash tilining muallifi — QUCHQOROV Kamronbek.Ushbu qoʻllanma '+nom+'ni oʻrganish uchun yaratildi. Qoʻllanma '+nom+'ning '+versiya+' versiyasi boʻyicha yaratildi. Endi esa '+nom+' tarixiga yuzlansak: dasturlash tiliga dastlab "Mycron" deb nom qoʻyilgan edi. Ammo keyinchalik "'+nom+'"ga aylandi.\n'+
-       "  "+nom+" dasturlash tilining quyidagicha qulayliklari bor:\n"+
-       "1)Oʻzbek va ingliz tillarida ishlay olishi;\n"+
-       "2) Sodda sintaksisga ega eksnligi;\n"+
-       "3)Unda python dasturlash tilining kodlarini yozish va undan foydalanish imkonining mavjudligi;\n"+
-       "4) Dastur oʻz matn muharririga ega."
-       '  Dasturlash tilining eng ajoyib jihati shundaki, u ham ingliz, ham oʻzbek tilida ishlay oladi. Shu sababli buyruqlar ham ikki xil.Biz bu ikki kalit soʻzlarni "/" belgisi yordamida ajratdik.\n'+
-       '\t'+nom+' INTERFEYSI VA KICHIK BUYRUQLAR\n'+
-       ' Ushbu dasturlash tilining interfeysi har doim har xil koʻrinishga ega boʻladi. Bu mutlaqo tasodifiy tarzda roʻy beradi:\n'+
-       ekr+'\n'+buy+'#1\n'+
-       screen+'\n'+buy+'#2\n'+
-       "  '"+buy+"' belgisidan keyin buyruq kiritish mumkin. Quyida misol:\n"+
-       buy+"yozuv('Salom dunyo!')\n"+
-       "Salom dunyo!\n"+
-       "\t"+nom+"da DASTUR TUZISH\n"+
-       "  "+nom+"da dastur tuzish uchun (boshqa dasturlash tillari kabi) operatorlarni maʼlum tartibda joylashtirish kerak. Hozir biz 'yozuv' va 'kirit' operatorlarlari bilan tanishamiz.\n"+
-       "  Bu funksiyalarning vazifasi bir xil, ammo ular turlicha argument qabul qiladi. Argumentlar orasida nechta vergul boʻlsa, shu sondan bitta koʻp argument kiritilgan boʻladi.\n"+
-       "  yozuv operatorlar oilasi kiritilgan soʻzni ekranga chiqarish vazifasini bajaradi. kirit operatorlar oilasi esa qavs ichida yozilgan soʻzni ekranga chiqarib, qiymat kiritishni soʻraydi. Quyida misol:\n"+
-       buy+"kirit(\"Soʻz: \")\n"+
-       "Soʻz: (Shu yerga soʻz yozing)\n"+
-       "(Shu yerga soʻz yozing)\n"+
-       "  "+nom+"da fayllarni ishgs tushirish mumkin. Buning uchun file() operatori qoʻl keladi. Funksiya bitta argument qabul qiladi va shu nomdagi faylga endi kiritadigan yozuvlarni yozadi. Agar fayl mavjud boʻlmasa, yaratadi va yozadi. Agar mavjud boʻlsa, ichidagi barcha yozuvlar oʻchib, yangi yozuvlar yoziladi.Barcha yozuvlar saqlanib, dastur ishga tushishi uchun \"save\" yoki \"saqla\" soʻzlaridan birini kiritish kerak. Shunda fayl saqlanadi va dasturimiz ishga tushadi. Quyida misol:\n"+
-       buy+"file('salom')\n"+
-       "1__|yozuv(\"Salom dunyo!\")\n"+
-       "2__|save\n\n"+
-       "Salom dunyo!\n"+
-       "  Agar fayl mavjud boʻlsa va unda "+nom+"ga doir yozuvlar boʻlsa, faylni natija() yoki output() funksiyalari orqali ishga tushirish mumkin. Quyida misol:\n"+
-       buy+"output('salom')\n"+
-       "yozuv(\"Salom,\",\"doʻstim\")\n\n"+
-       "Salom, doʻstim\n"+
-       '\t'+nom+'DA IZOHLAR BILAN ISHLASH\n'+
-       ' '+nom+' dasturlash tilida izoh yozish pythonnikiga oʻxshab ketadi. Masalan, 1 satrli izoh yozish uchun "#" belgisidan foydalaniladi. Buning uchun '+buy+' belgisidan keyin "#" beligisi kiritiladi. Soʻng izoh yozish mumkin.Quyida misol keltirilgan:\n\n'+
-        ' '+buy+' #Salom. Yaxshimisiz?\n'+' '+buy+'\n\n'+
-        'Endi esa koʻp qatorli izohlar bilan ishlashni oʻrganamiz. Buning uchun satr boshiga 3 ta (bittalik yoki ikkitalik qoʻshtirnoq qoʻyish kerak. Keyin esa izohni yakunlash uchun yana ikkitalik yoki bittalik qoʻshtirnoq qoʻyish kerak. Quyida misol keltirilgan:\n\n'+
-        buy+'"""Salom. Ahvolim juda yaxshi\n'+
-        iz+'Qoyil\n'+
-        iz+'Tamom""" \n'+
-        buy+'\n\n'+
-        "\tOʻZGARUVCHILAR BILAN ISHLASH\n"+
-        '\tSOʻZLAR BILAN ISHLASH\n'+
-        ' '+nom+'da ham soʻzlar ustida ishlash mumkin. Buning uchun 3 ta buyruq mavjud. Ular quyidagilar:\n'+
-        '  aks/mirr--------------soʻzni akslantiradi\n'+
-        '  da------------------------a b ning ichidaligini aniqlash\n'+
-        '  uzun/len------------------soʻz uzunligini aniqlash\n'+
-        'Bu buyruqlar dasturda quyidagicha ishlatiladi:\n\n'+
-        buy+'  in_("f","uj")\n'+
-        '  0\n'+
-        buy+'  da("gol","g")\n'+
-        '  1\n'+
-        buy+'  len("salom!")\n'+
-        '  6\n'+
-        buy+'  uzun("bolakay")\n'+
-        '  7\n'+
-        buy+'  aks("salom")\n'+
-        '  molas\n'+
-        buy+'  mirror("salom")\n'+
-        '  molas\n\n'+
-        "\t MODULLAR \n"+
-        "  Modullar foydalanish uchun juda qulay. "+nom+"da quyidagi modullar mavjud:\n"+
-        "1) fizika- ushbu modul fizikaga oid maʼlumotlarni berish va masalalarni hal etish imkonini beradi;\n"+
-        "2)chizma- modul turli chiziq va figuralarni chizish uchun ishlatiladi;\n"+
-        "3)matem- Matematik, trigonometrik hisoblashlarni amalga oshiruvchi modul;\n"+
-        '\tMATEMATIK HISOBLASH\n'+
-        '  '+nom+' dasturlash tilida ham matematik funksiyalar mavjud. Ularning barchasi matem moduliga joylashtirilgan. Avval bu modulni dasturga yuklash kerak . Ulardan foydalanish uchun quyida misollar keltirilgan:\n\n'+
-        '   '+buy+'sin(34)\n'+
-        '   529082686120\n\n'+
-        ' Bundan tashqari boshqa buyruqlar quyida keltirilgan:\n'+
-        ' sin--------------------sinus\n'+
-        ' cos-------------- kosinus\n'+
-        ' tan---------------tangens\n'+
-        ' atan-------arktangens\n\n'+
-        ' log10-------------------oʻnli logarifm\n\n'+
-        ' toq_juft/odd_even-----toq yoki juft\n'+
-        ' taqqos------------------------taqqoslash\n'+
-        ' katta/max------------------eng katta son\n'+
-        ' kichik/min------------------eng kichik son\n'+
-        ' radi----------------------------darajadan radianga\n'+
-        ' grad----------------------------radiandan darajaga\n'+
-        ' kkyax--------------------------eng yaqin kichik butun songacha yaxlitlash\n'+
-        ' yaxlit--------------------------yaxlitlash\n'+
-        ' yaxn(m,n)-----------------yaxlitlash (m ni n ta belgi qolguncha yaxlitlash)\n'+
-        ' ktyax--------------------------eng yaqin katta butun songacha yaxlitlash\n'+
-        ' factor------------------------faktorial\n'+
-        ' pi------------------------------pi soni\n'+
-        ' ild----------------------kvadrat ildiz\n'+
-        ' modul------------------modul\n'+
-        ' log--------------------------------logarifm(a,b)\n'+
-        ' discrim-----------------------(a,b,c)diskriminant\n'+
-        ' modul(a)------------a ning moduli\n'+
-        '\tFIZIKA\n'+
-        ' '+nom+' dasturlash tilida fizik masalalarni ham hisoblash mumkin.\n'+
-        ' kuch_mg(a)-----------------a ning ogʻirlik kuchini hisoblaydi (g=9.81 N/kg)\n'+
-        ' fizik_const/physics_const------------fizik konstantalarni chiqaradi\n'+
-        ' tezl_st(a,b)----------------a/b tezlikni hisoblaydi\n'+
-        ' yo_l_vt(a,b)---------------a*b masofani hisoblaydi\n'+
-        ' vaqt_sv(a,b)-------------a*b masofa\n'+
-        '\tXATOLAR BILAN ISHLASH\n'+
-        '  Agar dasturga dasturdagi kalit soʻzlardan boshqa soʻz kiritilsa, quyidagi xatolik ekranga chiqadi.\n\n'+
-        buy+'hhh\n'+
-        'X:  1 ==\n'+
-        'NX: N "hhh"\n'+
-        buy+'\n\n'+
-        ' Xatolar bilan ishlash uchun baʼzi belgilarning bildiradigan soʻzlarini bilib olish zarur:\n'+
-        ' "Fl/fl"-------"Fayl"\n'+
-        ' "X"-----"xato"\n'+
-        ' "N"-----"nom"\n'+
-        ' "+"------"allaqachon mavjud"\n'+
-        ' "-"--------"mavjud emas"\n'+
-        ' "Q"------"qiymat"\n'+
-        ' "S"-------"Sintaksis"\n'+
-        " '~'------'emas' \n"+
-        " '_'-------'kiritish' \n"+
-        " 'kk'-----'kichik' \n"+
-        " 'kt'------'katta' \n"+
-        " 'kl'------'katalog' \n"+
-        '  NomXato(NX), FaylMavjudligiXato(Fl+X), FaylMavjudEmasligiXato(Fl-X), QiymatXato(QX),SintaksisXato(SX) bular xatolik turlari hisoblanadi. Xatoga yoʻl qoʻyishning quyidagi sabablari boʻlishi mumkin: verguldan soʻng boʻsh joy qoldirish, ikkita vergulni yonma-yon qoʻyish va raqam oʻrniga soʻz yoki belgi kiritish.\n'+
-        '\tFAYLLAR BILAN ISHLASH\n'+
-        " Quyida fayllar bilan bogʻliq funksiyalar. Ular fl moduliga joylashtirilgan. Shuning uchun dastlab modulni import qilib olish kerak. \n "+
-        ' yrtfl/mkfl-------------------Fayl yaratadi\n'+
-        ' o_chir/remove-----------------------Faylni oʻchiradi\n'+
-        ' o_qish/read--------------------------------Faylni oʻqiydi\n'+
-        ' qo_sh/appen-----------Faylga yozuv qoʻshadi(Agar mavjud boʻlmasa, yaratib yozadi)\n'+
-        ' yozish/write--------------Faylga qayta yozadi(barcha eski yozuvlar oʻchib, yangisi yoziladi. Agar fayl mavjud boʻlmasa yaratib yozadi)\n'+
-        ' qaytnomfl/rename-------Faylni qayta nomlaydi(mavjud boʻlmasa xatolik yuz beradi)\n\n'+
-         'aniqfl/todtrfl-------------------Fayl mavjudligini aniqlaydi(mavjud boʻlsa 1, aks holda 0 ni qaytaradi)'+
-         "ktyar------------------- katalog yaratish\n" )
-       f.close()
-       print("\n\t"+nom+" "+versiya+" yordam dasturiga xush kelibsiz!\nAgar "+nom+"dan birinchi marta foydalanayotgan bo'lsangiz, albatta tekshirib ko'rishingiz kerak.\nYozish bo'yicha yordam olish uchun har qanday modul, kalit so'z yoki mavzu nomini kiriting.\n\t"+nom+" dasturlari va "+nom+"  modullaridan foydalanish.\nUshbu yordam dasturidan chiqish va tarjimonga qaytish uchun, shunchaki, \"chiqish\" ni kiriting.\nMavjud modullar, kalit so'zlar yoki belgilar  ro'yxatini olish uchun\n\"modullar\", \"belgilar\", 'hujjat'  yoki 'FEP' soʻzlaridan birini kiriting.\n")
-       while True:
-       	pr=input("yordam > ")
-       	if "modullar"in pr:
-       		print("Modullar roʻyxati:\n\tchizma\n\tmatem\n\tfizika")
-       	if "chiqish"in pr:
-       		return ''
-       		break
-       	if "FEP"in pr or "fep"in pr :
-       		print("  Qurilmangizning '.FUPL' katalogida\n'"+mep+".txt' nomli fayl paydo boʻldi.\nIltomos, qurilmangizni tekshiring!")
-       		f=open(stormyc+mep+".txt","w")
-       		f.write("\tAgar siz oʻzbek tilini bilsangiz "+mep+" hujjatlari quyidagicha yoziladi:\nYaratdi: (ism, familiya)\nBoshlandi: (yaratish boshlangan vaqt(sana,oy,yil))\nTugatildi: (yaratish tugallangan vaqt(sana,oy,yil))\nVersiya:(Qaysi versiya boʻyicha yaratilgani.)\nMen quyidagilarni taklif qilmoqchiman:\n1)______(1-taklif);\n2)_____(2-taklif)\n...\n\t(Agar savollar boʻlsa, quyidagicha:)\nQuyidagi savollarim bor:\n1)____(1-savol)\n2)____(2-savol)\n...\n\n\tDIQQAT!\nQachon "+mep+" soxta deb topiladi?\nQachonki, hujjatda:\n1.Bezakdor, badiiy, erkalash soʻzlari boʻlsa;\n2.Baʼzi parametrlar koʻrsatilmasa;\n3.Fayl py, my, txt kabi fayllardan birortasiga ham tegishli boʻlmasa;\n4."+mep+" muddati oʻtgan boʻlsa.\n\tESDA SAQLANG!\n"+mep+" yozishda fayl nomi '"+mep+'+('+mep+" raqami).txt' koʻrinishida belgilanishi kerak.\n\nYaratilayotgan fayl txt, uz yoki py koʻrinishida boʻlishi mumkin."+mep+"larni fupl.uz@mail.ru elektron pochta manziliga yuborishingiz mumkin!")
-       		f.close()
-       	if "belgilar"in pr:
-       		return "%\t|\t==\t<\n>\t^\t&\t-\n+\t/\t//\t*\n**\t>>\t<<"
-       	if "hujjat"in pr:
-       		k=(stormyc+nom+" qoʻllanma.txt","r")
-       		r=k.read()
-       		k. close()
-       		print (r)
-       		#k.close()
+        
+        print("\n\t"+nom+" "+versiya+" yordam dasturiga xush kelibsiz!\nAgar "+nom+"dan birinchi marotaba foydalanayotgan bo'lsangiz, albatta tekshirib ko'rishingiz kerak.\nYozish bo'yicha yordam olish uchun har qanday modul, kalit so'z yoki mavzu nomini kiriting.\n\t"+nom+" dasturlari va "+nom+"  modullaridan foydalanish.\nUshbu yordam dasturidan chiqish va tarjimonga qaytish uchun, shunchaki, \"chiqish\" ni kiriting.\nMavjud modullar, kalit so'zlar yoki belgilar  ro'yxatini olish uchun\n\"modullar\", \"belgilar\" yoki 'FEP' soʻzlaridan birini kiriting.\n")
+        while True:
+                pr=input("yordam > ")
+                if "modullar"in pr:
+                        print("Modullar roʻyxati:\n\tchizma\n\tmatem\n\tfizika\n\tkf")
+                if "chiqish"in pr:
+                        #return ''
+                         break
+                if "fep"in pr :
+                        print("  Qurilmangizda '"+mep+".txt' nomli fayl paydo boʻldi.\nIltomos, qurilmangizni tekshiring!")
+                        f=open(stormyc+mep+".txt","w")
+                        f.write("\tAgar siz oʻzbek tilini bilsangiz "+mep+" hujjatlari quyidagicha yoziladi:\nYaratdi: (ism, familiya)\nBoshlandi: (yaratish boshlangan vaqt(sana,oy,yil))\nTugatildi: (yaratish tugallangan vaqt(sana,oy,yil))\nVersiya:(Qaysi versiya boʻyicha yaratilgani.)\nMen quyidagilarni taklif qilmoqchiman:\n1)______(1-taklif);\n2)_____(2-taklif)\n...\n\t(Agar savollar boʻlsa, quyidagicha:)\nQuyidagi savollarim bor:\n1)____(1-savol)\n2)____(2-savol)\n...\n\n\tDIQQAT!\nQachon "+mep+" soxta deb topiladi?\nQachonki, hujjatda:\n1.Bezakdor, badiiy, erkalash soʻzlari boʻlsa;\n2.Baʼzi parametrlar koʻrsatilmasa;\n3.Fayl py, my, txt kabi fayllardan birortasiga ham tegishli boʻlmasa;\n4."+mep+" muddati oʻtgan boʻlsa.\n\tESDA SAQLANG!\n"+mep+" yozishda fayl nomi '"+mep+'+('+mep+" raqami).txt' koʻrinishida belgilanishi kerak.\n\nYaratilayotgan fayl '.txt', '.uz' yoki '.py' koʻrinishida boʻlishi mumkin."+mep+"larni fupl.uz@mail.ru elektron pochta manziliga yuborishingiz mumkin!")
+                        f.close()
+                if "belgilar"in pr:
+                        print("%\t|\t==\t<\n>\t^\t&\t-\n+\t/\t//\t*\n**\t>>\t<<")
+                '''if "hujjat"in pr:
+                        from kf import read
+                        print(read(stormyc+nom+" qoʻllanma.txt"))'''
 def help():
 	return ''
 
@@ -597,19 +500,17 @@ def copyright() :
 	return "Copyright (c) 2022\nAll Rights Reserved."
 
 def tarix() :
-    return nom+" dasturlash tilining muallifi- Kamronbek QUCHQOROV.\n Dasturni yaratish 2021-yilda boshlangan.\n"
-    return ''
+    return nom+" dasturlash tilining muallifi- Kamronbek QUCHQOROV.\nDasturni yaratish 2021-yil sentabrda boshlangan."
 def history():
-	return "Maker programming language of "+nom+" — Kamronbek QUCHQOROV. Began in the 2021-year making program."
-
+    return "Maker programming language of "+nom+" — Kamronbek QUCHQOROV. Began in the 2021-year making program."
 def license() :
     return "License of MIT"
 def litsenziya():
-	return 'MIT litsenziyasi'
+    return 'MIT litsenziyasi'
 
-def stop():
+"""def stop():
 	while True:
-		buy=">>_ "
+		buy=">>> "
 		iz="  # "
 		m3f4=input(buy)
 		a=m3f4
@@ -645,11 +546,11 @@ def stop():
 						pass
 		if m3f4.lstrip()=='' or m3f4=='' :
 			continue
-		if ("="in a and "=="not in a and "!=" not in a)or("import"in a)or("def"in a)or("while"in a)or("output"in a) :
-			try:
-				exec(a)
-			except :
-				print("ERROR")
+		if ("="in a and "=="not in a and "!=" not in a)or("import"in a)or("def"in a)or("while"in a)or("output"in a)or('del'in a) :
+			#try:
+			exec(a)
+			#except :
+			#print("ERROR")
 		else :
 			try:
 				p=eval(a)
@@ -663,17 +564,14 @@ def stop():
 			#	print(NomXato(a))
 			#except TypeError :
 			#	print("kiritish xato")
-			except ValueError:
-				print("Qiymat xato")
+			#except ValueError:
+			#	print("Qiymat xato")
 			except AttributeError:
 				print("Atribut xato")
 			except OSError:
-				print("OS Cato")
+				print("OS Xato")
 			except IsADirectoryError:
 				print("Shu fayl")
 			#except:
 			#	print("Xato")
-stop()
-#
-"""
-"""
+stop()"""
