@@ -1,0 +1,41 @@
+from tkinter import*
+from math import*
+w=Tk()
+w.config(bg="black")
+
+Button(command=w.quit, text="<=",fg="white",bg="black").grid(row=1, column=1, sticky="w")
+a1=Entry(width=19,fg="white",bg="black",insertbackground="lime");a1.grid(row=1, column=1, sticky="n")
+
+def toza():
+	a1.delete(0,END)
+Button(command=toza,text="X",bg="red",fg="white").grid(row=1, column=1, sticky="e")
+dd=Text(width=33, height=5,fg="white",bg="black");dd.grid(row=2, column=1)
+
+def yozuv(a):
+	dd.insert(0.0,a)
+def bo_sh():
+	dd.delete(0.0,END)
+
+def natija():
+	a=str(a1.get())
+	try:
+		bo_sh()
+		return eval(a)
+	except:
+		dd.insert(0.0,"Xato")
+
+def hisob():
+	a=str(a1.get())
+	bo_sh()
+	dd.insert(0.0, natija())
+def ildiz():
+	if None!=natija():
+		yozuv (sqrt(natija()))
+def daraja():
+	if natija()!=None:
+		yozuv(natija()**2)
+
+Button(text="=",command=hisob,bg="black",fg="white").grid(row=10, column=1)
+Button(text="x²", command=daraja,bg="black",fg="white"). grid(row=3, column=1, sticky="nw")
+Button(text="√", command=ildiz,bg="black",fg="white").grid(row=3, column=1, sticky="n")
+w. mainloop()
